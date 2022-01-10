@@ -139,18 +139,20 @@ void man(char *name)
 
 void DisplayHelp()
 {
-	printf("ls : To List out all files\n");
-	printf("clear : To clear console\n");
-	printf("open : To open the file\n");
-	printf("close : To close the file\n");
+	printf("\n");
+	printf("create   : To create new regular file\n");
+	printf("ls       : To List out all files\n");
+	printf("clear    : To clear console\n");
+	printf("open     : To open the file\n");
+	printf("close    : To close the file\n");
 	printf("closeall : To close all opened files\n");
-	printf("read : To Read the contents from file\n");
-	printf("write : To write contents into file\n");
-	printf("exit : To Terminate file system\n");
-	printf("stat : To Display information of file using name\n");
-	printf("fstat : To Display information of file using file descriptor \n");
+	printf("read     : To Read the contents from file\n");
+	printf("write 	 : To write contents into file\n");
+	printf("exit 	 : To Terminate file system\n");
+	printf("stat 	 : To Display information of file using name\n");
+	printf("fstat 	 : To Display information of file using file descriptor \n");
 	printf("truncate : To remove all data from file\n");
-	printf("rm : To Delete the file\n");
+	printf("rm       : To Delete the file\n");
 }
 
 int GetFDFromName(char *name)
@@ -426,7 +428,7 @@ int CloseFileByName(char *name)
 void CloseAllFile()
 {
 	int i = 0;
-	while(i<MAXFILESIZE)
+	while(i < MAXINODE)
 	{
 		if(UFDTArr[i].ptrfiletable != NULL)
 		{
@@ -441,7 +443,7 @@ void CloseAllFile()
 
 int LseekFile(int fd,int size,int from)
 {
-	if((fd<0)||(from > 2))		return -1;
+	if((fd < 0)||(from > 2))		return -1;
 	if(UFDTArr[fd].ptrfiletable == NULL)		return -1;
 	
 	if((UFDTArr[fd].ptrfiletable->mode ==READ)||(UFDTArr[fd].ptrfiletable -> mode == READ + WRITE))
@@ -613,7 +615,7 @@ int main()
 		fflush(stdin);
 		strcpy(str,"");
 		
-		printf("\nMarvellous VFS : > ");
+		printf("\nRajkumar's CVFS : > ");
 		
 		fgets(str,80,stdin);	//scanf("%s[^'\n']s",str);
 		
@@ -648,7 +650,7 @@ int main()
 			}
 			else
 			{
-				printf("\nERROR : Command not found !!!\n");
+				printf("\nERROR : Command not found1 !!!\n");
 				continue;
 			}
 		}
@@ -723,7 +725,7 @@ int main()
 			}
 			else
 			{
-				printf("\nERROR : command not found!!!\n");
+				printf("\nERROR : command not found2 !!!\n");
 				continue;
 			}
 		}
@@ -790,7 +792,7 @@ int main()
 			}
 			else
 			{
-				 printf("\nERROR : Command not found!!!\n");
+				 printf("\nERROR : Command not found3 !!!\n");
 				 continue;
 			}
 		}
@@ -812,13 +814,13 @@ int main()
 			}
 			else
 			{
-				printf("\nERROR : Command not found!!!\n");
+				printf("\nERROR : Command not found4 !!!\n");
 				continue;
 			}
 		}
 		else
 		{
-			printf("\nERROR : Command not found!!!\n");
+			printf("\nERROR : Command not found5 !!!\n");
 			continue;
 		}
 	}
